@@ -180,6 +180,11 @@ loadStats();
 updateSettingsUI();
 updateLoanWordsAvailability();
 
+const AUDIO_CACHE = KANA_DATA.reduce((acc, k) => {
+  acc[k.romaji] = new Audio(`audio/${k.romaji}.mp3`)
+  return acc;
+}, {});
+
 // Event Listeners
 startBtn.addEventListener('click', startNewSession);
 closeBtn.addEventListener('click', closeSettings);
@@ -463,8 +468,7 @@ function getValidCharacterSets(kana, forQuestion = false) {
 }
 
 function playAudio(romaji) {
-    const audio = new Audio(`audio/${romaji}.mp3`);
-    audio.play();
+    AUDIO_CACHE[romaji].play();
 }
 
 function nextQuestion() {
