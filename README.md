@@ -8,6 +8,8 @@ Simply open `index.html` in any modern web browser. No build tools or server req
 
 The app works entirely offline once the audio files are generated.
 
+You can also use the app at [https://kanaflash.pages.dev/](https://kanaflash.pages.dev/).
+
 ## Features
 
 - **Multiple character sets**: Romaji, Hiragana, Katakana, and Audio
