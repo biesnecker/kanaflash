@@ -157,37 +157,36 @@
 
         /* Review Screen */
         .review-header {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            margin-bottom: 20px;
+            display: none;
         }
 
         .settings-link {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 28px;
+            justify-content: center;
+            gap: 8px;
+            font-size: 20px;
             cursor: pointer;
             text-decoration: none;
             color: #333;
+            margin-top: 12px;
         }
 
         .settings-icon {
-            font-size: 32px;
+            font-size: 24px;
         }
 
         .question-box {
             width: 100%;
-            min-height: 300px;
+            min-height: 240px;
             border: 4px solid #333;
             border-radius: 30px;
             background-color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 120px;
-            margin-bottom: 20px;
+            font-size: 100px;
+            margin-bottom: 15px;
             transition: background-color 0.3s;
         }
 
@@ -200,7 +199,7 @@
         }
 
         .speaker-icon {
-            font-size: 120px;
+            font-size: 100px;
             cursor: pointer;
             user-select: none;
         }
@@ -216,16 +215,16 @@
         .answers-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 15px;
+            margin-bottom: 15px;
         }
 
         .answer-btn {
-            min-height: 150px;
+            min-height: 120px;
             border: 4px solid #333;
             border-radius: 20px;
             background-color: white;
-            font-size: 48px;
+            font-size: 40px;
             cursor: pointer;
             font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', 'Trebuchet MS', 'Verdana', sans-serif;
             transition: all 0.3s;
@@ -261,7 +260,7 @@
         }
 
         .stats {
-            font-size: 20px;
+            font-size: 18px;
             text-align: center;
         }
     </style>
@@ -326,13 +325,6 @@
 
         <!-- Review Screen -->
         <div id="reviewScreen" class="screen">
-            <div class="review-header">
-                <div class="settings-link" id="settingsLink">
-                    <span class="settings-icon">⚙</span>
-                    <span>Settings</span>
-                </div>
-            </div>
-
             <div id="questionBox" class="question-box"></div>
 
             <div class="answers-grid">
@@ -345,6 +337,11 @@
             <div class="stats">
                 <div id="sessionStats"></div>
                 <div id="allTimeStats"></div>
+            </div>
+
+            <div class="settings-link" id="settingsLink">
+                <span class="settings-icon">⚙</span>
+                <span>Settings</span>
             </div>
         </div>
     </div>
