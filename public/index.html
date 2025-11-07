@@ -105,11 +105,22 @@
             gap: 8px;
         }
 
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 8px;
+        }
+
         .checkbox-item {
             display: flex;
             align-items: center;
             gap: 10px;
             font-size: 24px;
+        }
+
+        .checkbox-item.compact {
+            gap: 6px;
+            font-size: 20px;
         }
 
         .checkbox-item input[type="checkbox"] {
@@ -299,11 +310,53 @@
 
             <div class="settings-section">
                 <h2>Which kana?</h2>
-                <div class="checkbox-group">
-                    <label class="checkbox-item">
-                        <input type="checkbox" name="kanaGroup" value="basic" checked>
-                        <span>Basic</span>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="a" checked>
+                        <span>あ (a)</span>
                     </label>
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="ka" checked>
+                        <span>か (ka)</span>
+                    </label>
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="sa" checked>
+                        <span>さ (sa)</span>
+                    </label>
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="ta" checked>
+                        <span>た (ta)</span>
+                    </label>
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="na" checked>
+                        <span>な (na)</span>
+                    </label>
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="ha" checked>
+                        <span>は (ha)</span>
+                    </label>
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="ma" checked>
+                        <span>ま (ma)</span>
+                    </label>
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="ya" checked>
+                        <span>や (ya)</span>
+                    </label>
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="ra" checked>
+                        <span>ら (ra)</span>
+                    </label>
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="wa" checked>
+                        <span>わ (wa)</span>
+                    </label>
+                    <label class="checkbox-item compact">
+                        <input type="checkbox" name="kanaRow" value="n" checked>
+                        <span>ん (n)</span>
+                    </label>
+                </div>
+                <div class="checkbox-group" style="margin-top: 12px;">
                     <label class="checkbox-item">
                         <input type="checkbox" name="kanaGroup" value="dakuten" checked>
                         <span>Dakuten & Handakuten</span>
@@ -317,7 +370,7 @@
                         <span>Loan Words</span>
                     </label>
                 </div>
-                <div id="kanaGroupError" class="error-message">Please select at least 1 kana group</div>
+                <div id="kanaGroupError" class="error-message">Please select at least 1 kana group or row</div>
             </div>
 
             <button id="startBtn" class="start-btn">Start New Session</button>

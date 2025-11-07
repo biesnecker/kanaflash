@@ -1,154 +1,165 @@
 // Complete Kana Dataset
 const KANA_DATA = [
-    // Basic
-    { romaji: 'a', hiragana: 'あ', katakana: 'ア', group: 'basic' },
-    { romaji: 'i', hiragana: 'い', katakana: 'イ', group: 'basic' },
-    { romaji: 'u', hiragana: 'う', katakana: 'ウ', group: 'basic' },
-    { romaji: 'e', hiragana: 'え', katakana: 'エ', group: 'basic' },
-    { romaji: 'o', hiragana: 'お', katakana: 'オ', group: 'basic' },
-    { romaji: 'ka', hiragana: 'か', katakana: 'カ', group: 'basic' },
-    { romaji: 'ki', hiragana: 'き', katakana: 'キ', group: 'basic' },
-    { romaji: 'ku', hiragana: 'く', katakana: 'ク', group: 'basic' },
-    { romaji: 'ke', hiragana: 'け', katakana: 'ケ', group: 'basic' },
-    { romaji: 'ko', hiragana: 'こ', katakana: 'コ', group: 'basic' },
-    { romaji: 'sa', hiragana: 'さ', katakana: 'サ', group: 'basic' },
-    { romaji: 'shi', hiragana: 'し', katakana: 'シ', group: 'basic' },
-    { romaji: 'su', hiragana: 'す', katakana: 'ス', group: 'basic' },
-    { romaji: 'se', hiragana: 'せ', katakana: 'セ', group: 'basic' },
-    { romaji: 'so', hiragana: 'そ', katakana: 'ソ', group: 'basic' },
-    { romaji: 'ta', hiragana: 'た', katakana: 'タ', group: 'basic' },
-    { romaji: 'chi', hiragana: 'ち', katakana: 'チ', group: 'basic' },
-    { romaji: 'tsu', hiragana: 'つ', katakana: 'ツ', group: 'basic' },
-    { romaji: 'te', hiragana: 'て', katakana: 'テ', group: 'basic' },
-    { romaji: 'to', hiragana: 'と', katakana: 'ト', group: 'basic' },
-    { romaji: 'na', hiragana: 'な', katakana: 'ナ', group: 'basic' },
-    { romaji: 'ni', hiragana: 'に', katakana: 'ニ', group: 'basic' },
-    { romaji: 'nu', hiragana: 'ぬ', katakana: 'ヌ', group: 'basic' },
-    { romaji: 'ne', hiragana: 'ね', katakana: 'ネ', group: 'basic' },
-    { romaji: 'no', hiragana: 'の', katakana: 'ノ', group: 'basic' },
-    { romaji: 'ha', hiragana: 'は', katakana: 'ハ', group: 'basic' },
-    { romaji: 'hi', hiragana: 'ひ', katakana: 'ヒ', group: 'basic' },
-    { romaji: 'fu', hiragana: 'ふ', katakana: 'フ', group: 'basic' },
-    { romaji: 'he', hiragana: 'へ', katakana: 'ヘ', group: 'basic' },
-    { romaji: 'ho', hiragana: 'ほ', katakana: 'ホ', group: 'basic' },
-    { romaji: 'ma', hiragana: 'ま', katakana: 'マ', group: 'basic' },
-    { romaji: 'mi', hiragana: 'み', katakana: 'ミ', group: 'basic' },
-    { romaji: 'mu', hiragana: 'む', katakana: 'ム', group: 'basic' },
-    { romaji: 'me', hiragana: 'め', katakana: 'メ', group: 'basic' },
-    { romaji: 'mo', hiragana: 'も', katakana: 'モ', group: 'basic' },
-    { romaji: 'ya', hiragana: 'や', katakana: 'ヤ', group: 'basic' },
-    { romaji: 'yu', hiragana: 'ゆ', katakana: 'ユ', group: 'basic' },
-    { romaji: 'yo', hiragana: 'よ', katakana: 'ヨ', group: 'basic' },
-    { romaji: 'ra', hiragana: 'ら', katakana: 'ラ', group: 'basic' },
-    { romaji: 'ri', hiragana: 'り', katakana: 'リ', group: 'basic' },
-    { romaji: 'ru', hiragana: 'る', katakana: 'ル', group: 'basic' },
-    { romaji: 're', hiragana: 'れ', katakana: 'レ', group: 'basic' },
-    { romaji: 'ro', hiragana: 'ろ', katakana: 'ロ', group: 'basic' },
-    { romaji: 'wa', hiragana: 'わ', katakana: 'ワ', group: 'basic' },
-    { romaji: 'wo', hiragana: 'を', katakana: 'ヲ', group: 'basic' },
-    { romaji: 'n', hiragana: 'ん', katakana: 'ン', group: 'basic' },
+    // Basic - Vowel row
+    { romaji: 'a', hiragana: 'あ', katakana: 'ア', group: 'basic', row: 'a' },
+    { romaji: 'i', hiragana: 'い', katakana: 'イ', group: 'basic', row: 'a' },
+    { romaji: 'u', hiragana: 'う', katakana: 'ウ', group: 'basic', row: 'a' },
+    { romaji: 'e', hiragana: 'え', katakana: 'エ', group: 'basic', row: 'a' },
+    { romaji: 'o', hiragana: 'お', katakana: 'オ', group: 'basic', row: 'a' },
+    // Ka row
+    { romaji: 'ka', hiragana: 'か', katakana: 'カ', group: 'basic', row: 'ka' },
+    { romaji: 'ki', hiragana: 'き', katakana: 'キ', group: 'basic', row: 'ka' },
+    { romaji: 'ku', hiragana: 'く', katakana: 'ク', group: 'basic', row: 'ka' },
+    { romaji: 'ke', hiragana: 'け', katakana: 'ケ', group: 'basic', row: 'ka' },
+    { romaji: 'ko', hiragana: 'こ', katakana: 'コ', group: 'basic', row: 'ka' },
+    // Sa row
+    { romaji: 'sa', hiragana: 'さ', katakana: 'サ', group: 'basic', row: 'sa' },
+    { romaji: 'shi', hiragana: 'し', katakana: 'シ', group: 'basic', row: 'sa' },
+    { romaji: 'su', hiragana: 'す', katakana: 'ス', group: 'basic', row: 'sa' },
+    { romaji: 'se', hiragana: 'せ', katakana: 'セ', group: 'basic', row: 'sa' },
+    { romaji: 'so', hiragana: 'そ', katakana: 'ソ', group: 'basic', row: 'sa' },
+    // Ta row
+    { romaji: 'ta', hiragana: 'た', katakana: 'タ', group: 'basic', row: 'ta' },
+    { romaji: 'chi', hiragana: 'ち', katakana: 'チ', group: 'basic', row: 'ta' },
+    { romaji: 'tsu', hiragana: 'つ', katakana: 'ツ', group: 'basic', row: 'ta' },
+    { romaji: 'te', hiragana: 'て', katakana: 'テ', group: 'basic', row: 'ta' },
+    { romaji: 'to', hiragana: 'と', katakana: 'ト', group: 'basic', row: 'ta' },
+    // Na row
+    { romaji: 'na', hiragana: 'な', katakana: 'ナ', group: 'basic', row: 'na' },
+    { romaji: 'ni', hiragana: 'に', katakana: 'ニ', group: 'basic', row: 'na' },
+    { romaji: 'nu', hiragana: 'ぬ', katakana: 'ヌ', group: 'basic', row: 'na' },
+    { romaji: 'ne', hiragana: 'ね', katakana: 'ネ', group: 'basic', row: 'na' },
+    { romaji: 'no', hiragana: 'の', katakana: 'ノ', group: 'basic', row: 'na' },
+    // Ha row
+    { romaji: 'ha', hiragana: 'は', katakana: 'ハ', group: 'basic', row: 'ha' },
+    { romaji: 'hi', hiragana: 'ひ', katakana: 'ヒ', group: 'basic', row: 'ha' },
+    { romaji: 'fu', hiragana: 'ふ', katakana: 'フ', group: 'basic', row: 'ha' },
+    { romaji: 'he', hiragana: 'へ', katakana: 'ヘ', group: 'basic', row: 'ha' },
+    { romaji: 'ho', hiragana: 'ほ', katakana: 'ホ', group: 'basic', row: 'ha' },
+    // Ma row
+    { romaji: 'ma', hiragana: 'ま', katakana: 'マ', group: 'basic', row: 'ma' },
+    { romaji: 'mi', hiragana: 'み', katakana: 'ミ', group: 'basic', row: 'ma' },
+    { romaji: 'mu', hiragana: 'む', katakana: 'ム', group: 'basic', row: 'ma' },
+    { romaji: 'me', hiragana: 'め', katakana: 'メ', group: 'basic', row: 'ma' },
+    { romaji: 'mo', hiragana: 'も', katakana: 'モ', group: 'basic', row: 'ma' },
+    // Ya row
+    { romaji: 'ya', hiragana: 'や', katakana: 'ヤ', group: 'basic', row: 'ya' },
+    { romaji: 'yu', hiragana: 'ゆ', katakana: 'ユ', group: 'basic', row: 'ya' },
+    { romaji: 'yo', hiragana: 'よ', katakana: 'ヨ', group: 'basic', row: 'ya' },
+    // Ra row
+    { romaji: 'ra', hiragana: 'ら', katakana: 'ラ', group: 'basic', row: 'ra' },
+    { romaji: 'ri', hiragana: 'り', katakana: 'リ', group: 'basic', row: 'ra' },
+    { romaji: 'ru', hiragana: 'る', katakana: 'ル', group: 'basic', row: 'ra' },
+    { romaji: 're', hiragana: 'れ', katakana: 'レ', group: 'basic', row: 'ra' },
+    { romaji: 'ro', hiragana: 'ろ', katakana: 'ロ', group: 'basic', row: 'ra' },
+    // Wa row
+    { romaji: 'wa', hiragana: 'わ', katakana: 'ワ', group: 'basic', row: 'wa' },
+    { romaji: 'wo', hiragana: 'を', katakana: 'ヲ', group: 'basic', row: 'wa' },
+    // N
+    { romaji: 'n', hiragana: 'ん', katakana: 'ン', group: 'basic', row: 'n' },
 
     // Dakuten & Handakuten
-    { romaji: 'ga', hiragana: 'が', katakana: 'ガ', group: 'dakuten' },
-    { romaji: 'gi', hiragana: 'ぎ', katakana: 'ギ', group: 'dakuten' },
-    { romaji: 'gu', hiragana: 'ぐ', katakana: 'グ', group: 'dakuten' },
-    { romaji: 'ge', hiragana: 'げ', katakana: 'ゲ', group: 'dakuten' },
-    { romaji: 'go', hiragana: 'ご', katakana: 'ゴ', group: 'dakuten' },
-    { romaji: 'za', hiragana: 'ざ', katakana: 'ザ', group: 'dakuten' },
-    { romaji: 'ji', hiragana: 'じ', katakana: 'ジ', group: 'dakuten' },
-    { romaji: 'zu', hiragana: 'ず', katakana: 'ズ', group: 'dakuten' },
-    { romaji: 'ze', hiragana: 'ぜ', katakana: 'ゼ', group: 'dakuten' },
-    { romaji: 'zo', hiragana: 'ぞ', katakana: 'ゾ', group: 'dakuten' },
-    { romaji: 'da', hiragana: 'だ', katakana: 'ダ', group: 'dakuten' },
-    { romaji: 'ji', hiragana: 'ぢ', katakana: 'ヂ', group: 'dakuten' },
-    { romaji: 'zu', hiragana: 'づ', katakana: 'ヅ', group: 'dakuten' },
-    { romaji: 'de', hiragana: 'で', katakana: 'デ', group: 'dakuten' },
-    { romaji: 'do', hiragana: 'ど', katakana: 'ド', group: 'dakuten' },
-    { romaji: 'ba', hiragana: 'ば', katakana: 'バ', group: 'dakuten' },
-    { romaji: 'bi', hiragana: 'び', katakana: 'ビ', group: 'dakuten' },
-    { romaji: 'bu', hiragana: 'ぶ', katakana: 'ブ', group: 'dakuten' },
-    { romaji: 'be', hiragana: 'べ', katakana: 'ベ', group: 'dakuten' },
-    { romaji: 'bo', hiragana: 'ぼ', katakana: 'ボ', group: 'dakuten' },
-    { romaji: 'pa', hiragana: 'ぱ', katakana: 'パ', group: 'dakuten' },
-    { romaji: 'pi', hiragana: 'ぴ', katakana: 'ピ', group: 'dakuten' },
-    { romaji: 'pu', hiragana: 'ぷ', katakana: 'プ', group: 'dakuten' },
-    { romaji: 'pe', hiragana: 'ぺ', katakana: 'ペ', group: 'dakuten' },
-    { romaji: 'po', hiragana: 'ぽ', katakana: 'ポ', group: 'dakuten' },
+    { romaji: 'ga', hiragana: 'が', katakana: 'ガ', group: 'dakuten', row: 'ka' },
+    { romaji: 'gi', hiragana: 'ぎ', katakana: 'ギ', group: 'dakuten', row: 'ka' },
+    { romaji: 'gu', hiragana: 'ぐ', katakana: 'グ', group: 'dakuten', row: 'ka' },
+    { romaji: 'ge', hiragana: 'げ', katakana: 'ゲ', group: 'dakuten', row: 'ka' },
+    { romaji: 'go', hiragana: 'ご', katakana: 'ゴ', group: 'dakuten', row: 'ka' },
+    { romaji: 'za', hiragana: 'ざ', katakana: 'ザ', group: 'dakuten', row: 'sa' },
+    { romaji: 'ji', hiragana: 'じ', katakana: 'ジ', group: 'dakuten', row: 'sa' },
+    { romaji: 'zu', hiragana: 'ず', katakana: 'ズ', group: 'dakuten', row: 'sa' },
+    { romaji: 'ze', hiragana: 'ぜ', katakana: 'ゼ', group: 'dakuten', row: 'sa' },
+    { romaji: 'zo', hiragana: 'ぞ', katakana: 'ゾ', group: 'dakuten', row: 'sa' },
+    { romaji: 'da', hiragana: 'だ', katakana: 'ダ', group: 'dakuten', row: 'ta' },
+    { romaji: 'ji', hiragana: 'ぢ', katakana: 'ヂ', group: 'dakuten', row: 'ta' },
+    { romaji: 'zu', hiragana: 'づ', katakana: 'ヅ', group: 'dakuten', row: 'ta' },
+    { romaji: 'de', hiragana: 'で', katakana: 'デ', group: 'dakuten', row: 'ta' },
+    { romaji: 'do', hiragana: 'ど', katakana: 'ド', group: 'dakuten', row: 'ta' },
+    { romaji: 'ba', hiragana: 'ば', katakana: 'バ', group: 'dakuten', row: 'ha' },
+    { romaji: 'bi', hiragana: 'び', katakana: 'ビ', group: 'dakuten', row: 'ha' },
+    { romaji: 'bu', hiragana: 'ぶ', katakana: 'ブ', group: 'dakuten', row: 'ha' },
+    { romaji: 'be', hiragana: 'べ', katakana: 'ベ', group: 'dakuten', row: 'ha' },
+    { romaji: 'bo', hiragana: 'ぼ', katakana: 'ボ', group: 'dakuten', row: 'ha' },
+    { romaji: 'pa', hiragana: 'ぱ', katakana: 'パ', group: 'dakuten', row: 'ha' },
+    { romaji: 'pi', hiragana: 'ぴ', katakana: 'ピ', group: 'dakuten', row: 'ha' },
+    { romaji: 'pu', hiragana: 'ぷ', katakana: 'プ', group: 'dakuten', row: 'ha' },
+    { romaji: 'pe', hiragana: 'ぺ', katakana: 'ペ', group: 'dakuten', row: 'ha' },
+    { romaji: 'po', hiragana: 'ぽ', katakana: 'ポ', group: 'dakuten', row: 'ha' },
 
     // Digraphs
-    { romaji: 'kya', hiragana: 'きゃ', katakana: 'キャ', group: 'digraphs' },
-    { romaji: 'kyu', hiragana: 'きゅ', katakana: 'キュ', group: 'digraphs' },
-    { romaji: 'kyo', hiragana: 'きょ', katakana: 'キョ', group: 'digraphs' },
-    { romaji: 'sha', hiragana: 'しゃ', katakana: 'シャ', group: 'digraphs' },
-    { romaji: 'shu', hiragana: 'しゅ', katakana: 'シュ', group: 'digraphs' },
-    { romaji: 'sho', hiragana: 'しょ', katakana: 'ショ', group: 'digraphs' },
-    { romaji: 'cha', hiragana: 'ちゃ', katakana: 'チャ', group: 'digraphs' },
-    { romaji: 'chu', hiragana: 'ちゅ', katakana: 'チュ', group: 'digraphs' },
-    { romaji: 'cho', hiragana: 'ちょ', katakana: 'チョ', group: 'digraphs' },
-    { romaji: 'nya', hiragana: 'にゃ', katakana: 'ニャ', group: 'digraphs' },
-    { romaji: 'nyu', hiragana: 'にゅ', katakana: 'ニュ', group: 'digraphs' },
-    { romaji: 'nyo', hiragana: 'にょ', katakana: 'ニョ', group: 'digraphs' },
-    { romaji: 'hya', hiragana: 'ひゃ', katakana: 'ヒャ', group: 'digraphs' },
-    { romaji: 'hyu', hiragana: 'ひゅ', katakana: 'ヒュ', group: 'digraphs' },
-    { romaji: 'hyo', hiragana: 'ひょ', katakana: 'ヒョ', group: 'digraphs' },
-    { romaji: 'mya', hiragana: 'みゃ', katakana: 'ミャ', group: 'digraphs' },
-    { romaji: 'myu', hiragana: 'みゅ', katakana: 'ミュ', group: 'digraphs' },
-    { romaji: 'myo', hiragana: 'みょ', katakana: 'ミョ', group: 'digraphs' },
-    { romaji: 'rya', hiragana: 'りゃ', katakana: 'リャ', group: 'digraphs' },
-    { romaji: 'ryu', hiragana: 'りゅ', katakana: 'リュ', group: 'digraphs' },
-    { romaji: 'ryo', hiragana: 'りょ', katakana: 'リョ', group: 'digraphs' },
-    { romaji: 'gya', hiragana: 'ぎゃ', katakana: 'ギャ', group: 'digraphs' },
-    { romaji: 'gyu', hiragana: 'ぎゅ', katakana: 'ギュ', group: 'digraphs' },
-    { romaji: 'gyo', hiragana: 'ぎょ', katakana: 'ギョ', group: 'digraphs' },
-    { romaji: 'ja', hiragana: 'じゃ', katakana: 'ジャ', group: 'digraphs' },
-    { romaji: 'ju', hiragana: 'じゅ', katakana: 'ジュ', group: 'digraphs' },
-    { romaji: 'jo', hiragana: 'じょ', katakana: 'ジョ', group: 'digraphs' },
-    { romaji: 'bya', hiragana: 'びゃ', katakana: 'ビャ', group: 'digraphs' },
-    { romaji: 'byu', hiragana: 'びゅ', katakana: 'ビュ', group: 'digraphs' },
-    { romaji: 'byo', hiragana: 'びょ', katakana: 'ビョ', group: 'digraphs' },
-    { romaji: 'pya', hiragana: 'ぴゃ', katakana: 'ピャ', group: 'digraphs' },
-    { romaji: 'pyu', hiragana: 'ぴゅ', katakana: 'ピュ', group: 'digraphs' },
-    { romaji: 'pyo', hiragana: 'ぴょ', katakana: 'ピョ', group: 'digraphs' },
+    { romaji: 'kya', hiragana: 'きゃ', katakana: 'キャ', group: 'digraphs', row: 'ka' },
+    { romaji: 'kyu', hiragana: 'きゅ', katakana: 'キュ', group: 'digraphs', row: 'ka' },
+    { romaji: 'kyo', hiragana: 'きょ', katakana: 'キョ', group: 'digraphs', row: 'ka' },
+    { romaji: 'sha', hiragana: 'しゃ', katakana: 'シャ', group: 'digraphs', row: 'sa' },
+    { romaji: 'shu', hiragana: 'しゅ', katakana: 'シュ', group: 'digraphs', row: 'sa' },
+    { romaji: 'sho', hiragana: 'しょ', katakana: 'ショ', group: 'digraphs', row: 'sa' },
+    { romaji: 'cha', hiragana: 'ちゃ', katakana: 'チャ', group: 'digraphs', row: 'ta' },
+    { romaji: 'chu', hiragana: 'ちゅ', katakana: 'チュ', group: 'digraphs', row: 'ta' },
+    { romaji: 'cho', hiragana: 'ちょ', katakana: 'チョ', group: 'digraphs', row: 'ta' },
+    { romaji: 'nya', hiragana: 'にゃ', katakana: 'ニャ', group: 'digraphs', row: 'na' },
+    { romaji: 'nyu', hiragana: 'にゅ', katakana: 'ニュ', group: 'digraphs', row: 'na' },
+    { romaji: 'nyo', hiragana: 'にょ', katakana: 'ニョ', group: 'digraphs', row: 'na' },
+    { romaji: 'hya', hiragana: 'ひゃ', katakana: 'ヒャ', group: 'digraphs', row: 'ha' },
+    { romaji: 'hyu', hiragana: 'ひゅ', katakana: 'ヒュ', group: 'digraphs', row: 'ha' },
+    { romaji: 'hyo', hiragana: 'ひょ', katakana: 'ヒョ', group: 'digraphs', row: 'ha' },
+    { romaji: 'mya', hiragana: 'みゃ', katakana: 'ミャ', group: 'digraphs', row: 'ma' },
+    { romaji: 'myu', hiragana: 'みゅ', katakana: 'ミュ', group: 'digraphs', row: 'ma' },
+    { romaji: 'myo', hiragana: 'みょ', katakana: 'ミョ', group: 'digraphs', row: 'ma' },
+    { romaji: 'rya', hiragana: 'りゃ', katakana: 'リャ', group: 'digraphs', row: 'ra' },
+    { romaji: 'ryu', hiragana: 'りゅ', katakana: 'リュ', group: 'digraphs', row: 'ra' },
+    { romaji: 'ryo', hiragana: 'りょ', katakana: 'リョ', group: 'digraphs', row: 'ra' },
+    { romaji: 'gya', hiragana: 'ぎゃ', katakana: 'ギャ', group: 'digraphs', row: 'ka' },
+    { romaji: 'gyu', hiragana: 'ぎゅ', katakana: 'ギュ', group: 'digraphs', row: 'ka' },
+    { romaji: 'gyo', hiragana: 'ぎょ', katakana: 'ギョ', group: 'digraphs', row: 'ka' },
+    { romaji: 'ja', hiragana: 'じゃ', katakana: 'ジャ', group: 'digraphs', row: 'sa' },
+    { romaji: 'ju', hiragana: 'じゅ', katakana: 'ジュ', group: 'digraphs', row: 'sa' },
+    { romaji: 'jo', hiragana: 'じょ', katakana: 'ジョ', group: 'digraphs', row: 'sa' },
+    { romaji: 'bya', hiragana: 'びゃ', katakana: 'ビャ', group: 'digraphs', row: 'ha' },
+    { romaji: 'byu', hiragana: 'びゅ', katakana: 'ビュ', group: 'digraphs', row: 'ha' },
+    { romaji: 'byo', hiragana: 'びょ', katakana: 'ビョ', group: 'digraphs', row: 'ha' },
+    { romaji: 'pya', hiragana: 'ぴゃ', katakana: 'ピャ', group: 'digraphs', row: 'ha' },
+    { romaji: 'pyu', hiragana: 'ぴゅ', katakana: 'ピュ', group: 'digraphs', row: 'ha' },
+    { romaji: 'pyo', hiragana: 'ぴょ', katakana: 'ピョ', group: 'digraphs', row: 'ha' },
 
     // Loan Words (Katakana only)
-    { romaji: 'va', hiragana: '', katakana: 'ヴァ', group: 'loanwords' },
-    { romaji: 'vi', hiragana: '', katakana: 'ヴィ', group: 'loanwords' },
-    { romaji: 'vu', hiragana: '', katakana: 'ヴ', group: 'loanwords' },
-    { romaji: 've', hiragana: '', katakana: 'ヴェ', group: 'loanwords' },
-    { romaji: 'vo', hiragana: '', katakana: 'ヴォ', group: 'loanwords' },
-    { romaji: 'fa', hiragana: '', katakana: 'ファ', group: 'loanwords' },
-    { romaji: 'fi', hiragana: '', katakana: 'フィ', group: 'loanwords' },
-    { romaji: 'fe', hiragana: '', katakana: 'フェ', group: 'loanwords' },
-    { romaji: 'fo', hiragana: '', katakana: 'フォ', group: 'loanwords' },
-    { romaji: 'wi', hiragana: '', katakana: 'ウィ', group: 'loanwords' },
-    { romaji: 'we', hiragana: '', katakana: 'ウェ', group: 'loanwords' },
-    { romaji: 'wo', hiragana: '', katakana: 'ウォ', group: 'loanwords' },
-    { romaji: 'kwa', hiragana: '', katakana: 'クヮ', group: 'loanwords' },
-    { romaji: 'kye', hiragana: '', katakana: 'キェ', group: 'loanwords' },
-    { romaji: 'gwa', hiragana: '', katakana: 'グヮ', group: 'loanwords' },
-    { romaji: 'ti', hiragana: '', katakana: 'ティ', group: 'loanwords' },
-    { romaji: 'tu', hiragana: '', katakana: 'トゥ', group: 'loanwords' },
-    { romaji: 'di', hiragana: '', katakana: 'ディ', group: 'loanwords' },
-    { romaji: 'du', hiragana: '', katakana: 'ドゥ', group: 'loanwords' },
-    { romaji: 'she', hiragana: '', katakana: 'シェ', group: 'loanwords' },
-    { romaji: 'je', hiragana: '', katakana: 'ジェ', group: 'loanwords' },
-    { romaji: 'che', hiragana: '', katakana: 'チェ', group: 'loanwords' },
-    { romaji: 'tsa', hiragana: '', katakana: 'ツァ', group: 'loanwords' },
-    { romaji: 'tsi', hiragana: '', katakana: 'ツィ', group: 'loanwords' },
-    { romaji: 'tse', hiragana: '', katakana: 'ツェ', group: 'loanwords' },
-    { romaji: 'tso', hiragana: '', katakana: 'ツォ', group: 'loanwords' },
-    { romaji: 'ye', hiragana: '', katakana: 'イェ', group: 'loanwords' },
-    { romaji: 'vya', hiragana: '', katakana: 'ヴャ', group: 'loanwords' },
-    { romaji: 'vyu', hiragana: '', katakana: 'ヴュ', group: 'loanwords' },
-    { romaji: 'vye', hiragana: '', katakana: 'ヴェ', group: 'loanwords' },
-    { romaji: 'vyo', hiragana: '', katakana: 'ヴョ', group: 'loanwords' }
+    { romaji: 'va', hiragana: '', katakana: 'ヴァ', group: 'loanwords', row: null },
+    { romaji: 'vi', hiragana: '', katakana: 'ヴィ', group: 'loanwords', row: null },
+    { romaji: 'vu', hiragana: '', katakana: 'ヴ', group: 'loanwords', row: null },
+    { romaji: 've', hiragana: '', katakana: 'ヴェ', group: 'loanwords', row: null },
+    { romaji: 'vo', hiragana: '', katakana: 'ヴォ', group: 'loanwords', row: null },
+    { romaji: 'fa', hiragana: '', katakana: 'ファ', group: 'loanwords', row: null },
+    { romaji: 'fi', hiragana: '', katakana: 'フィ', group: 'loanwords', row: null },
+    { romaji: 'fe', hiragana: '', katakana: 'フェ', group: 'loanwords', row: null },
+    { romaji: 'fo', hiragana: '', katakana: 'フォ', group: 'loanwords', row: null },
+    { romaji: 'wi', hiragana: '', katakana: 'ウィ', group: 'loanwords', row: null },
+    { romaji: 'we', hiragana: '', katakana: 'ウェ', group: 'loanwords', row: null },
+    { romaji: 'wo', hiragana: '', katakana: 'ウォ', group: 'loanwords', row: null },
+    { romaji: 'kwa', hiragana: '', katakana: 'クヮ', group: 'loanwords', row: null },
+    { romaji: 'kye', hiragana: '', katakana: 'キェ', group: 'loanwords', row: null },
+    { romaji: 'gwa', hiragana: '', katakana: 'グヮ', group: 'loanwords', row: null },
+    { romaji: 'ti', hiragana: '', katakana: 'ティ', group: 'loanwords', row: null },
+    { romaji: 'tu', hiragana: '', katakana: 'トゥ', group: 'loanwords', row: null },
+    { romaji: 'di', hiragana: '', katakana: 'ディ', group: 'loanwords', row: null },
+    { romaji: 'du', hiragana: '', katakana: 'ドゥ', group: 'loanwords', row: null },
+    { romaji: 'she', hiragana: '', katakana: 'シェ', group: 'loanwords', row: null },
+    { romaji: 'je', hiragana: '', katakana: 'ジェ', group: 'loanwords', row: null },
+    { romaji: 'che', hiragana: '', katakana: 'チェ', group: 'loanwords', row: null },
+    { romaji: 'tsa', hiragana: '', katakana: 'ツァ', group: 'loanwords', row: null },
+    { romaji: 'tsi', hiragana: '', katakana: 'ツィ', group: 'loanwords', row: null },
+    { romaji: 'tse', hiragana: '', katakana: 'ツェ', group: 'loanwords', row: null },
+    { romaji: 'tso', hiragana: '', katakana: 'ツォ', group: 'loanwords', row: null },
+    { romaji: 'ye', hiragana: '', katakana: 'イェ', group: 'loanwords', row: null },
+    { romaji: 'vya', hiragana: '', katakana: 'ヴャ', group: 'loanwords', row: null },
+    { romaji: 'vyu', hiragana: '', katakana: 'ヴュ', group: 'loanwords', row: null },
+    { romaji: 'vye', hiragana: '', katakana: 'ヴェ', group: 'loanwords', row: null },
+    { romaji: 'vyo', hiragana: '', katakana: 'ヴョ', group: 'loanwords', row: null }
 ];
 
 // Game State
 let gameState = {
     settings: {
         characterSets: ['romaji', 'hiragana', 'katakana', 'audio'],
-        kanaGroups: ['basic', 'dakuten', 'digraphs', 'loanwords']
+        kanaRows: ['a', 'ka', 'sa', 'ta', 'na', 'ha', 'ma', 'ya', 'ra', 'wa', 'n'],
+        kanaGroups: ['dakuten', 'digraphs', 'loanwords']
     },
     stats: {
         sessionCorrect: 0,
@@ -197,6 +208,10 @@ document.querySelectorAll('input[name="characterSet"]').forEach(cb => {
     });
 });
 
+document.querySelectorAll('input[name="kanaRow"]').forEach(cb => {
+    cb.addEventListener('change', () => kanaGroupError.classList.remove('visible'));
+});
+
 document.querySelectorAll('input[name="kanaGroup"]').forEach(cb => {
     cb.addEventListener('change', () => kanaGroupError.classList.remove('visible'));
 });
@@ -210,7 +225,25 @@ function loadSettings() {
     const saved = localStorage.getItem('kanaflash-settings');
     if (saved) {
         try {
-            gameState.settings = JSON.parse(saved);
+            const loadedSettings = JSON.parse(saved);
+
+            // Migration: Convert old 'basic' group to individual rows
+            if (loadedSettings.kanaGroups && loadedSettings.kanaGroups.includes('basic')) {
+                // Remove 'basic' from groups
+                loadedSettings.kanaGroups = loadedSettings.kanaGroups.filter(g => g !== 'basic');
+
+                // Add all rows if not already present
+                if (!loadedSettings.kanaRows) {
+                    loadedSettings.kanaRows = ['a', 'ka', 'sa', 'ta', 'na', 'ha', 'ma', 'ya', 'ra', 'wa', 'n'];
+                }
+            }
+
+            // Ensure kanaRows exists for old saves
+            if (!loadedSettings.kanaRows) {
+                loadedSettings.kanaRows = [];
+            }
+
+            gameState.settings = loadedSettings;
         } catch (e) {
             // Use defaults
         }
@@ -224,6 +257,9 @@ function saveSettings() {
 function updateSettingsUI() {
     document.querySelectorAll('input[name="characterSet"]').forEach(cb => {
         cb.checked = gameState.settings.characterSets.includes(cb.value);
+    });
+    document.querySelectorAll('input[name="kanaRow"]').forEach(cb => {
+        cb.checked = gameState.settings.kanaRows.includes(cb.value);
     });
     document.querySelectorAll('input[name="kanaGroup"]').forEach(cb => {
         cb.checked = gameState.settings.kanaGroups.includes(cb.value);
@@ -247,9 +283,11 @@ function updateLoanWordsAvailability() {
 function getSettingsFromUI() {
     const characterSets = Array.from(document.querySelectorAll('input[name="characterSet"]:checked'))
         .map(cb => cb.value);
+    const kanaRows = Array.from(document.querySelectorAll('input[name="kanaRow"]:checked'))
+        .map(cb => cb.value);
     const kanaGroups = Array.from(document.querySelectorAll('input[name="kanaGroup"]:checked'))
         .map(cb => cb.value);
-    return { characterSets, kanaGroups };
+    return { characterSets, kanaRows, kanaGroups };
 }
 
 function validateSettings(settings) {
@@ -271,7 +309,8 @@ function validateSettings(settings) {
         }
     }
 
-    if (settings.kanaGroups.length < 1) {
+    // Need at least one row or group selected
+    if (settings.kanaRows.length < 1 && settings.kanaGroups.length < 1) {
         kanaGroupError.classList.add('visible');
         valid = false;
     } else {
@@ -355,9 +394,25 @@ function closeSettings() {
 
 // Question Generation
 function getAvailableKana() {
-    return KANA_DATA.filter(kana =>
-        gameState.settings.kanaGroups.includes(kana.group)
-    );
+    return KANA_DATA.filter(kana => {
+        // For basic kana (group='basic'), check if the row is selected
+        if (kana.group === 'basic') {
+            return gameState.settings.kanaRows.includes(kana.row);
+        }
+
+        // For dakuten, digraphs - check if the group is selected AND the base row is selected
+        if (kana.group === 'dakuten' || kana.group === 'digraphs') {
+            return gameState.settings.kanaGroups.includes(kana.group) &&
+                   gameState.settings.kanaRows.includes(kana.row);
+        }
+
+        // For loan words, just check if the group is selected (no row dependency)
+        if (kana.group === 'loanwords') {
+            return gameState.settings.kanaGroups.includes(kana.group);
+        }
+
+        return false;
+    });
 }
 
 function getQuestionKey(kana) {
