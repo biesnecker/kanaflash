@@ -157,7 +157,12 @@ const KANA_DATA = [
 // Game State
 let gameState = {
     settings: {
-        characterSets: ['romaji', 'hiragana', 'katakana', 'audio'],
+        quizDirections: [
+            'romaji-hiragana', 'hiragana-romaji',
+            'romaji-katakana', 'katakana-romaji',
+            'hiragana-katakana', 'katakana-hiragana',
+            'audio-romaji', 'audio-hiragana', 'audio-katakana'
+        ],
         kanaRows: ['a', 'ka', 'sa', 'ta', 'na', 'ha', 'ma', 'ya', 'ra', 'wa', 'n'],
         kanaGroups: ['dakuten', 'digraphs', 'loanwords']
     },
@@ -180,7 +185,7 @@ const startBtn = document.getElementById('startBtn');
 const settingsLink = document.getElementById('settingsLink');
 const questionBox = document.getElementById('questionBox');
 const answerBtns = document.querySelectorAll('.answer-btn');
-const characterSetError = document.getElementById('characterSetError');
+const quizDirectionError = document.getElementById('quizDirectionError');
 const kanaGroupError = document.getElementById('kanaGroupError');
 const sessionStatsEl = document.getElementById('sessionStats');
 const allTimeStatsEl = document.getElementById('allTimeStats');
@@ -201,9 +206,9 @@ startBtn.addEventListener('click', startNewSession);
 closeBtn.addEventListener('click', closeSettings);
 settingsLink.addEventListener('click', openSettings);
 
-document.querySelectorAll('input[name="characterSet"]').forEach(cb => {
+document.querySelectorAll('input[name="quizDirection"]').forEach(cb => {
     cb.addEventListener('change', () => {
-        characterSetError.classList.remove('visible');
+        quizDirectionError.classList.remove('visible');
         updateLoanWordsAvailability();
     });
 });
@@ -227,6 +232,31 @@ function loadSettings() {
         try {
             const loadedSettings = JSON.parse(saved);
 
+            // Migration: Convert old characterSets to quizDirections
+            if (loadedSettings.characterSets && !loadedSettings.quizDirections) {
+                const directions = [];
+                const sets = loadedSettings.characterSets;
+
+                // Convert all combinations to directions
+                if (sets.includes('romaji') && sets.includes('hiragana')) {
+                    directions.push('romaji-hiragana', 'hiragana-romaji');
+                }
+                if (sets.includes('romaji') && sets.includes('katakana')) {
+                    directions.push('romaji-katakana', 'katakana-romaji');
+                }
+                if (sets.includes('hiragana') && sets.includes('katakana')) {
+                    directions.push('hiragana-katakana', 'katakana-hiragana');
+                }
+                if (sets.includes('audio')) {
+                    if (sets.includes('romaji')) directions.push('audio-romaji');
+                    if (sets.includes('hiragana')) directions.push('audio-hiragana');
+                    if (sets.includes('katakana')) directions.push('audio-katakana');
+                }
+
+                loadedSettings.quizDirections = directions;
+                delete loadedSettings.characterSets;
+            }
+
             // Migration: Convert old 'basic' group to individual rows
             if (loadedSettings.kanaGroups && loadedSettings.kanaGroups.includes('basic')) {
                 // Remove 'basic' from groups
@@ -238,9 +268,12 @@ function loadSettings() {
                 }
             }
 
-            // Ensure kanaRows exists for old saves
+            // Ensure required fields exist for old saves
             if (!loadedSettings.kanaRows) {
                 loadedSettings.kanaRows = [];
+            }
+            if (!loadedSettings.quizDirections) {
+                loadedSettings.quizDirections = [];
             }
 
             gameState.settings = loadedSettings;
@@ -255,8 +288,8 @@ function saveSettings() {
 }
 
 function updateSettingsUI() {
-    document.querySelectorAll('input[name="characterSet"]').forEach(cb => {
-        cb.checked = gameState.settings.characterSets.includes(cb.value);
+    document.querySelectorAll('input[name="quizDirection"]').forEach(cb => {
+        cb.checked = gameState.settings.quizDirections.includes(cb.value);
     });
     document.querySelectorAll('input[name="kanaRow"]').forEach(cb => {
         cb.checked = gameState.settings.kanaRows.includes(cb.value);
@@ -267,12 +300,17 @@ function updateSettingsUI() {
 }
 
 function updateLoanWordsAvailability() {
-    const romajiChecked = document.querySelector('input[name="characterSet"][value="romaji"]').checked;
-    const katakanaChecked = document.querySelector('input[name="characterSet"][value="katakana"]').checked;
+    const quizDirections = Array.from(document.querySelectorAll('input[name="quizDirection"]:checked'))
+        .map(cb => cb.value);
     const loanWordsCheckbox = document.querySelector('input[name="kanaGroup"][value="loanwords"]');
 
-    // Loan words require both romaji and katakana
-    if (!romajiChecked || !katakanaChecked) {
+    // Loan words require at least one direction involving katakana and romaji/audio
+    const hasKatakanaRomaji = quizDirections.some(d =>
+        d === 'katakana-romaji' || d === 'romaji-katakana' ||
+        d === 'audio-katakana'
+    );
+
+    if (!hasKatakanaRomaji) {
         loanWordsCheckbox.disabled = true;
         loanWordsCheckbox.checked = false;
     } else {
@@ -281,32 +319,24 @@ function updateLoanWordsAvailability() {
 }
 
 function getSettingsFromUI() {
-    const characterSets = Array.from(document.querySelectorAll('input[name="characterSet"]:checked'))
+    const quizDirections = Array.from(document.querySelectorAll('input[name="quizDirection"]:checked'))
         .map(cb => cb.value);
     const kanaRows = Array.from(document.querySelectorAll('input[name="kanaRow"]:checked'))
         .map(cb => cb.value);
     const kanaGroups = Array.from(document.querySelectorAll('input[name="kanaGroup"]:checked'))
         .map(cb => cb.value);
-    return { characterSets, kanaRows, kanaGroups };
+    return { quizDirections, kanaRows, kanaGroups };
 }
 
 function validateSettings(settings) {
     let valid = true;
 
-    // Need at least 2 character sets total
-    if (settings.characterSets.length < 2) {
-        characterSetError.classList.add('visible');
+    // Need at least 1 quiz direction
+    if (settings.quizDirections.length < 1) {
+        quizDirectionError.classList.add('visible');
         valid = false;
-    }
-    // Need at least one non-audio character set (for answers)
-    else {
-        const nonAudioSets = settings.characterSets.filter(s => s !== 'audio');
-        if (nonAudioSets.length < 1) {
-            characterSetError.classList.add('visible');
-            valid = false;
-        } else {
-            characterSetError.classList.remove('visible');
-        }
+    } else {
+        quizDirectionError.classList.remove('visible');
     }
 
     // Need at least one row or group selected
@@ -511,14 +541,20 @@ function shuffle(array) {
     return result;
 }
 
-function getValidCharacterSets(kana, forQuestion = false) {
-    // Filter out character sets that are empty for this kana
-    return gameState.settings.characterSets.filter(set => {
-        if (set === 'romaji') return true;
-        if (set === 'hiragana') return kana.hiragana !== '';
-        if (set === 'katakana') return kana.katakana !== '';
-        if (set === 'audio') return forQuestion; // Audio only valid for questions
-        return false;
+function getValidDirections(kana) {
+    // Filter out directions that are invalid for this kana
+    return gameState.settings.quizDirections.filter(direction => {
+        const [from, to] = direction.split('-');
+
+        // Check if 'from' is valid for this kana
+        if (from === 'hiragana' && kana.hiragana === '') return false;
+        if (from === 'katakana' && kana.katakana === '') return false;
+
+        // Check if 'to' is valid for this kana
+        if (to === 'hiragana' && kana.hiragana === '') return false;
+        if (to === 'katakana' && kana.katakana === '') return false;
+
+        return true;
     });
 }
 
@@ -530,42 +566,28 @@ function nextQuestion() {
     const availableKana = getAvailableKana();
     if (availableKana.length === 0) return;
 
-    const characterSets = gameState.settings.characterSets;
-    if (characterSets.length < 2) return;
+    const quizDirections = gameState.settings.quizDirections;
+    if (quizDirections.length < 1) return;
 
     // Try to find a non-recent question
     let attempts = 0;
-    let questionType, answerType, selectedKana, questionKey, validQuestionSets, validAnswerSets;
+    let questionType, answerType, selectedKana, questionKey, validDirections, chosenDirection;
 
     do {
         // Pick random kana
         selectedKana = availableKana[Math.floor(Math.random() * availableKana.length)];
 
-        // Get valid character sets for questions and answers
-        validQuestionSets = getValidCharacterSets(selectedKana, true);
-        validAnswerSets = getValidCharacterSets(selectedKana, false);
+        // Get valid directions for this kana
+        validDirections = getValidDirections(selectedKana);
 
-        // Need at least 1 valid question set and 1 valid answer set
-        if (validQuestionSets.length < 1 || validAnswerSets.length < 1) {
+        if (validDirections.length < 1) {
             attempts++;
             continue;
         }
 
-        // Pick random question type from valid question sets (can include audio)
-        questionType = validQuestionSets[Math.floor(Math.random() * validQuestionSets.length)];
-
-        // If question is audio, pick any valid answer type
-        // Otherwise, make sure question and answer are different
-        if (questionType === 'audio') {
-            answerType = validAnswerSets[Math.floor(Math.random() * validAnswerSets.length)];
-        } else {
-            const otherAnswerSets = validAnswerSets.filter(s => s !== questionType);
-            if (otherAnswerSets.length < 1) {
-                attempts++;
-                continue;
-            }
-            answerType = otherAnswerSets[Math.floor(Math.random() * otherAnswerSets.length)];
-        }
+        // Pick random direction
+        chosenDirection = validDirections[Math.floor(Math.random() * validDirections.length)];
+        [questionType, answerType] = chosenDirection.split('-');
 
         questionKey = getQuestionKey(selectedKana);
         attempts++;

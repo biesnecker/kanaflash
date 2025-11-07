@@ -111,6 +111,12 @@
             gap: 8px;
         }
 
+        .quiz-direction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
         .checkbox-item {
             display: flex;
             align-items: center;
@@ -286,26 +292,46 @@
             </div>
 
             <div class="settings-section">
-                <h2>Which cards?</h2>
-                <div class="checkbox-group">
+                <h2>Quiz directions</h2>
+                <div class="quiz-direction-grid">
                     <label class="checkbox-item">
-                        <input type="checkbox" name="characterSet" value="romaji" checked>
-                        <span>Romaji</span>
+                        <input type="checkbox" name="quizDirection" value="romaji-hiragana" checked>
+                        <span>Romaji → Hiragana</span>
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" name="characterSet" value="hiragana" checked>
-                        <span>Hiragana</span>
+                        <input type="checkbox" name="quizDirection" value="hiragana-romaji" checked>
+                        <span>Hiragana → Romaji</span>
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" name="characterSet" value="katakana" checked>
-                        <span>Katakana</span>
+                        <input type="checkbox" name="quizDirection" value="romaji-katakana" checked>
+                        <span>Romaji → Katakana</span>
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" name="characterSet" value="audio" checked>
-                        <span>Audio</span>
+                        <input type="checkbox" name="quizDirection" value="katakana-romaji" checked>
+                        <span>Katakana → Romaji</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="quizDirection" value="hiragana-katakana" checked>
+                        <span>Hiragana → Katakana</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="quizDirection" value="katakana-hiragana" checked>
+                        <span>Katakana → Hiragana</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="quizDirection" value="audio-romaji" checked>
+                        <span>Audio → Romaji</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="quizDirection" value="audio-hiragana" checked>
+                        <span>Audio → Hiragana</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="quizDirection" value="audio-katakana" checked>
+                        <span>Audio → Katakana</span>
                     </label>
                 </div>
-                <div id="characterSetError" class="error-message">Please select at least 2 types (at least one must be Romaji, Hiragana, or Katakana)</div>
+                <div id="quizDirectionError" class="error-message">Please select at least 1 quiz direction</div>
             </div>
 
             <div class="settings-section">
